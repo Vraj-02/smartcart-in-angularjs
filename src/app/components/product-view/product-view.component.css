@@ -1,0 +1,9 @@
+body{
+    display: flex;
+    align-items: center;
+}
+
+.card{
+    align-items: center;
+    width: 50%;
+}

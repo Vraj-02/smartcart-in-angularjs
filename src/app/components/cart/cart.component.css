@@ -1,0 +1,25 @@
+/* cart.component.css */
+
+.container{
+    width: 50%;
+}
+.cart-item {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+.cartImg{
+    float: inline-start;
+}  
+.cart-content{
+    justify-content: center;
+}
+.cart-elements{
+    margin-left: 5%;
+}
+.r{
+    float: inline-end;
+}
+.delete{
+    font-family: FontAwesome;
+}

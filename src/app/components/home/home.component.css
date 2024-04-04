@@ -1,0 +1,17 @@
+body{
+    padding-left: 10%;
+    padding-right: 5%;
+    margin-left: 5%;
+}
+.w{
+    font-weight: 800 important!;
+}
+.container{
+    align-items: center;
+}
+.bestSellers{
+    color: rgb(3, 59, 3);
+}
+.box{
+    box-shadow: 1px 1px 1px grey;
+}

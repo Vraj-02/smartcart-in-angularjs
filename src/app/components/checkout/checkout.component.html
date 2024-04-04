@@ -1,0 +1,92 @@
+<!-- checkout.component.html -->
+
+<!-- <button type="button" class="btn btn-primary launch" data-toggle="modal" data-target="#staticBackdrop"> <i class="fa fa-info"></i> Get information
+</button> -->
+<div  id="staticBackdrop" data-backdrop="static"  aria-labelledby="staticBackdropLabel" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body ">
+                <div class="text-right"> <i class="fa fa-close close" data-dismiss="modal"></i> </div>
+                
+                <div class="px-4 py-5">
+
+                    <h5 class="text-uppercase">Checkout</h5>
+
+
+
+                <h4 class="mt-5 theme-color">Deliver to:</h4>
+                <div class="mb-3">
+                  <hr class="new1">
+              </div>
+                {{this.userdataforcheckout.user_addresses[0].address_line_1}},
+                {{this.userdataforcheckout.user_addresses[0].address_line_2}},<br>
+                {{this.userdataforcheckout.user_addresses[0].city.name}},<br>
+                {{this.userdataforcheckout.user_addresses[0].city.pincode}}<br>
+
+                <h4 class="mt-5 theme-color">Payment Mode:</h4>
+                Cash On Delivery
+
+                <h4 class="mt-5 theme-color">Payment Summary:</h4>
+                <div class="mb-3">
+                    <hr class="new1">
+                </div>
+
+                <div class="d-flex justify-content-between" *ngFor="let item of checkoutItems">
+                    <span class="font-weight-bold">{{ item.attributes.product.data.attributes.product_name}}(Qty:{{item.attributes.quantity}})</span>
+                    <span class="text-muted">₹{{calculateItemTotal(item.attributes.quantity, item.attributes.product.data.attributes.price)}}</span>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <small>Shipping</small>
+                    <small>₹{{shipping}}</small>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <small>Tax(18%)</small>
+                    <small>₹{{tax}}</small>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="font-weight-bold">Amount to be paid</span>
+                    <span class="font-weight-bold theme-color">₹{{getTotalPrice()}}</span>
+                </div>  
+
+
+
+                <div class="text-center mt-5">
+                    <button class="btn btn-success" (click)="placeOrder()">Place Order</button>
+                </div>                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="container mt-4">
+    <h2>Checkout</h2>
+    <div>
+      <span><strong>Address:</strong></span><br>
+      {{this.userdataforcheckout.user_addresses[0].address_line_1}},<br>
+      {{this.userdataforcheckout.user_addresses[0].address_line_2}},<br>
+      {{this.userdataforcheckout.user_addresses[0].city.name}},<br>
+      {{this.userdataforcheckout.user_addresses[0].city.pincode}}
+      
+    </div>
+    <br>
+    <div>
+      <h4>Order Summary:</h4>
+      <ol>
+        <li *ngFor="let item of checkoutItems">
+          {{ item.attributes.product.data.attributes.product_name}} - ₹{{ item.attributes.product.data.attributes.price}}
+        </li>
+      </ol>
+    </div>
+    <div>
+      <h4>Total Price:{{ calculateTotal()}}</h4>
+    </div>
+    <button class="btn btn-primary mt-3" (click)="placeOrder()">Place Order</button><br>
+    <div><a routerLink="../" class="">Go back to cart</a></div>
+  </div>
+   -->

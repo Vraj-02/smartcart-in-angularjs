@@ -1,0 +1,26 @@
+/* checkout.component.css */
+.container {
+    max-width: 500px;
+  }
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.modal-body {
+    background-color: #f8ffff;
+    border-color: #fff;
+    /* box-shadow: 2px 2px 2px 1px gray; */
+}
+
+.close {
+    color: #000;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+  

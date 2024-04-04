@@ -1,0 +1,57 @@
+
+
+
+<!-- <div class="product-details">
+    <h2>{{ details.name }}</h2>
+    <img src="{{ details.img }}" alt="{{ details.name }}">
+    <p><strong>ID:</strong> {{ details.id }}</p>
+    <p><strong>Price:</strong> {{ details.price }}</p>
+    <p><strong>Description:</strong> {{ details.description }}</p>
+  </div> -->
+
+
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="!loading">
+  <div class="product-details-container" *ngIf="productDetail">
+    <div class="product-details">
+      <div class="image-container">
+        <img
+          [src]="
+            'http://localhost:1337' +
+            productDetail.attributes.product_image.data[0].attributes.url
+          "
+          alt="image"
+        />
+      </div>
+      <div class="product-info">
+        <div class="breadcrumbs">
+          <span (click)="navigateProduct()">Product</span> /
+          <span>{{ productDetail.id }}</span>
+        </div>
+
+        <div class="name">{{ productDetail.attributes.product_name }}</div>
+        <div class="price">{{ productDetail.attributes.price | currency }}</div>
+        <div class="description">
+          {{ productDetail.attributes.product_description }}
+        </div>
+        <div class="weight">{{ productDetail.attributes.weight }}</div>
+        <div class="color">{{ productDetail.attributes.color }}</div>
+
+        <div class="event-container">
+          <div class="add-to-cart">
+            <button (click)="addToCart(productDetail.id)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- --------------------------------------------------------------------------------------------- -->
+  
+  
+  
+
+

@@ -1,0 +1,106 @@
+<!-- cart.component.html -->
+<!-- <div class="container mt-4">
+    <div *ngIf="cartItems.length === 0" class="alert alert-info" role="alert">
+      Your cart is empty.
+    </div>
+    <div *ngIf="cartItems.length > 0" class="">
+      <div class="list-group">
+        <div *ngFor="let item of cartItems" class="list-group-item">
+          <div class="cartImg"><img [src]="item.img" class="card-img-top" alt="Product Image"></div>  
+          <div class="cart-content">
+          <span class="cart-elements">{{ item.name }}</span>
+          <span class="cart-elements">Quantity: {{ item.quantity }}</span>
+          <span class="cart-elements">Price: {{ item.price }}</span>
+          <span class="cart-elements"><button (click)="removeItem(item)" class="btn btn-danger btn-sm r">Remove Item</button></span>
+        </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <strong>Total: {{ calculateTotal() }}</strong>
+      </div>
+      <div><a routerLink="app-checkout" class="btn btn-primary">Checkout</a></div>
+    </div>
+  </div> -->
+  
+  <!-- ================================================================================================== -->
+
+  <section class="pt-5 pb-5">
+    <div class="container">
+      <div class="row w-100">
+          <div class="col-lg-12 col-md-12 col-12">
+              <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
+              <p class="mb-5 text-center">
+                  <i class="text-info font-weight-bold">
+                    {{calculateItems()}}
+                  </i> items in your cart</p>
+               <!-- when cart is empty -->
+              
+
+              
+               
+              <!-- when cart items present -->
+                 
+              <table id="shoppingCart" class="table table-condensed table-responsive" >
+                  <thead>
+                      <tr>
+                          <th style="width:60%">Product</th>
+                          <th style="width:12%">Price</th>
+                          <th style="width:10%">Quantity</th>
+                          <th style="width:16%"></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+<!-- ================================================================================================== -->
+                      <tr *ngFor="let product of cartItems; let index" id="{{ product.id }}" >
+                          <td data-th="Product">
+                              <div class="row">
+                                  <div class="col-md-3 text-left">
+                                      <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                  </div>
+                                  <div class="col-md-9 text-left mt-sm-2">
+                                      <h4>{{ product.attributes.product.data.attributes.product_name }}</h4>
+                                      <!-- <p class="font-weight-light">Brand &amp; Name</p> -->
+                                  </div>
+                              </div>
+                          </td>
+                          <td data-th="Price">{{ product.attributes.product.data.attributes.price }}</td>
+                          <td data-th="Quantity">
+                            <div class="btn-group my-auto">
+                              <button class="btn btn-outline-danger" (click)="decrementQuantity(index)">-</button>  
+                              <div class="mx-2 my-auto">
+                                {{ product.attributes.quantity }}
+                              </div>
+                              <button class="btn btn-outline-success" (click)="incrementQuantity(index)">+</button>                       
+                            </div>
+                          </td>
+                          <td class="actions" data-th="">
+                              <div class="text-right">
+                                  <button class="btn btn-white bg-white btn-md mb-2" (click)="removeCartItem(product.id)">
+                                      🗑️
+                                  </button>
+                                  
+                              </div>
+                          </td>
+                      </tr>
+<!-- =========================================================================================================== -->        
+                  </tbody>
+              </table>
+              <div class="float-right text-right" >
+                  <h4>Subtotal:</h4>
+                  <h1>{{ calculateTotal()}}</h1>
+              </div>
+          </div>
+      </div>
+      <div class="row mt-4 d-flex align-items-center" >
+          <div class="col-sm-6 order-md-2 text-right" >
+            <div><a class="btn btn-primary mb-4 btn-lg pl-5 pr-5" (click)="checkOut()">Checkout</a></div>
+              <!-- <a href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a> -->
+          </div>
+          <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
+              <a routerLink="../app-home">
+                  <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a>
+          </div>
+      </div>
+  </div>
+
+  </section>

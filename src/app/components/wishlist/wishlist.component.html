@@ -1,0 +1,16 @@
+<!-- wishlist.component.html -->
+<div class="container mt-4">
+    <div *ngIf="wishlistItems.length === 0" class="alert alert-info" role="alert">
+      Your wishlist is empty.
+    </div>
+    <div *ngIf="wishlistItems.length > 0">
+      <div class="list-group">
+        <div *ngFor="let item of wishlistItems" class="list-group-item">
+          <div>{{ item.name }}</div>
+          <div>Price: {{ item.price }}</div>
+          <button (click)="removeItem(item)" class="btn btn-danger btn-sm">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

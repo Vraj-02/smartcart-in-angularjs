@@ -1,0 +1,133 @@
+<!-- profile.component.html -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Profile</h2>
+      <!-- <div *ngIf="this.userdata.user_addresses">userdata is present</div> -->
+      <!-- ================================================================================================================= -->
+      <div>
+        Name:
+      <div class="form-control">
+        <!-- <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="userdata.username" class="form-control" disabled> -->
+        {{userdata.username}}
+      </div>
+    </div>
+    <div>
+      Email:
+      <div class="form-control">
+        <!-- <label for="email">Email:</label>
+        <input type="email" id="email" [(ngModel)]="userdata.email" class="form-control" disabled> -->
+        {{userdata.email}}
+      </div>
+    </div>
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" [(ngModel)]="userdata.mobile_number" class="form-control" [disabled]="!isPhoneEditMode" >
+      </div>
+      <button class="btn btn-info mt-3 btn-lg btn-block" (click)="togglePhoneEditMode()">{{ isPhoneEditMode ? 'Save' : 'Edit Phone Number' }}</button> 
+
+      <!-- =================================== -->
+
+      <div *ngIf="!this.userdata.user_addresses || this.userdata.user_addresses.length === 0">
+        <h3>Address</h3>
+        <div>
+          <label for="address">Address line 1:</label>
+          <textarea id="address_line_1" [(ngModel)]="newaddress[0].address_line_1" class="form-control"></textarea>
+        </div>
+        <div>
+          <label for="address">Address line 2:</label>
+          <textarea id="address_line_2" [(ngModel)]="newaddress[0].address_line_2" class="form-control"></textarea>
+        </div>
+        <div>
+          <label for="address">Landmark:</label>
+          <textarea id="address_landmark" [(ngModel)]="newaddress[0].landmark" class="form-control"></textarea>
+        </div>
+        <!-- <div>
+          <label for="city">City:</label>
+          <input type="text" id="city" [(ngModel)]="newaddress[0].city" class="form-control" >
+        </div> -->
+        <div>
+          <select id="city" [(ngModel)]="newaddress[0].city_id" class="form-control">
+            <option id="1" vlaue="1">Ahmedabad</option>
+            <option value="2">Surat</option>
+            <option value="3">Rajkot</option>
+          </select>
+        </div>
+        <div>
+          <label for="state">State:</label>
+          <input type="text" id="state" [(ngModel)]="state" class="form-control" [disabled]="!isEditMode">
+        </div>
+        <div>
+          <label for="zipcode">Zipcode:</label>
+          <input type="text" id="zipcode" [(ngModel)]="this.userdata.user_addresses[0].city.pincode" class="form-control" [disabled]="!isEditMode">
+        </div>
+        <button class="btn btn-info mt-3 btn-lg btn-block" (click)="createAddress()">Add Address</button>
+        <!-- <button class="btn btn-info mt-3 btn-lg btn-block" (click)="try()">Add Address</button> -->
+      </div>
+
+      <!-- ================================================================= -->
+      <div *ngIf="this.userdata.user_addresses && this.userdata.user_addresses.length > 0">
+        <h3>Address</h3>
+        <div>
+          <label for="address">Address line 1:</label>
+          <textarea id="address_line_1" [(ngModel)]="this.userdata.user_addresses[0].address_line_1" class="form-control" [disabled]="!isEditMode"></textarea>
+        </div>
+        <div>
+          <label for="address">Address line 2:</label>
+          <textarea id="address_line_2" [(ngModel)]="this.userdata.user_addresses[0].address_line_2" class="form-control" [disabled]="!isEditMode"></textarea>
+        </div>
+        <div>
+          <label for="address">Landmark:</label>
+          <textarea id="address_landmark" [(ngModel)]="this.userdata.user_addresses[0].landmark" class="form-control" [disabled]="!isEditMode"></textarea>
+        </div>
+        <div>
+          <label for="city">City:</label>
+          <input type="text" id="city" [(ngModel)]="this.userdata.user_addresses[0].city.name" class="form-control" disabled>
+        </div>
+        <div>
+          <label for="state">State:</label>
+          <input type="text" id="state" [(ngModel)]="state" class="form-control" [disabled]="!isEditMode">
+        </div>
+        <div>
+          <label for="zipcode">Zipcode:</label>
+          <input type="text" id="zipcode" [(ngModel)]="this.userdata.user_addresses[0].city.pincode" class="form-control" [disabled]="!isEditMode">
+        </div>
+        <!-- <button class="btn btn-info mt-3 btn-lg btn-block" (click)="toggleAddressEditMode()">{{ isAddressEditMode ? 'Save' : 'Edit' }}</button> -->
+      </div>
+    </div>
+
+    <!-- ================================================================================================================= -->
+
+    <div class="col-md-6 orderBox">
+      <h2>Order History</h2>
+      <div *ngIf="allorderItems.length === 0">
+        You have not placed any orders
+
+      </div>
+      
+      <div *ngIf="allorderItems.length>0">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Date</th>
+              <th>Total Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let orderitems of allorderItems">
+              <td>{{ orderitems.id }}</td>
+              <td>{{ orderitems.attributes.order_date.slice(0,10)}}</td>
+              <td>₹{{ orderitems.attributes.total_amount}}</td>
+              <td>{{ orderitems.attributes.order_status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.activeClass{
+    box-shadow: 0px 1px 1px 1px rgb(168, 164, 164);
+    text-decoration: overline;
+}
+.navBar{
+    background-color: rgb(44, 45, 43);
+    height: 5rem;
+    color:black;
+    /* position: fixed; */
+    width: 100%;
+    z-index: 1;
+}
+.SmartCartName{
+    font-size: 3rem;
+    float: left;
+    color: whitesmoke;
+}
+.middle{
+    margin-top: 5rem;
+    height: auto !important;
+    height: 100%;
+    background-color: rgb(194, 190, 190);
+
+}
+.footer{
+    margin-top: 1rem;
+    height: 8rem;
+    background-color: rgb(218, 245, 197);
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.r{
+    float: right;
+}
+.navElements{
+    font-size: large;
+    margin-left: 1%;
+    margin-right: 3%;
+    /* color: ; */
+}

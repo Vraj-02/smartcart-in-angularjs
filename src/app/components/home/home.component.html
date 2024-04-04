@@ -1,0 +1,81 @@
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+<!-- product-list.component.html -->
+<!-- <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form> -->
+  <div class="text-center mx-auto" style="max-width: 1100px;">
+    <h1 class="display-4 w">Bestseller Products</h1>
+    <p>Discover our handpicked selection of top-rated products. From must-have essentials to trendy favorites, find
+      what you need to elevate your lifestyle.</p>
+  </div>
+<div class="container mt-4">
+    <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+      <br>
+      <!-- <span class="bestSellers"><h1>Best Sellers</h1></span><br><br> -->
+<div class="row mx-auto">
+    <div class="col-lg-6 col-xl-4 mb-4 product-card" *ngFor="let product of products">
+      <div class="card box">
+        <!-- ================================================== -->
+
+        <!-- <product-card [cardDesign]="'border-0'" [cardBodyClass]="'p-4 rounded'"
+              [productImg]="product.productImageUrl" [productShortName]="product.productShortName | titlecase"
+              [productPrice]="product.productPrice" (incrementQuantity)="increment(product)"
+              (decrementQuantity)="decrementQuantity(product)" [quantity]="getQuantity(product)"
+              (addProductToCart)="addToCart(product)" [isLoading]="product.isAddToCartApiCallInProgress">
+            </product-card> -->
+
+
+
+           <!-- ======================================================= -->
+        <div class="row"> 
+        <div class="col-md-6">
+        <img src="{{
+          product.attributes.product_image.data ?
+          'http://localhost:1337'+
+          product.attributes.product_image.data?.[0]?.attributes?.url 
+          :
+        'https://via.placeholder.com/150'
+        }}" class="card-img-top" alt="Product Image">
+        <!-- <a routerLink="app-product-view" (click)="productDetails(product.id)">view product details</a><br><br> -->
+        </div>
+        <div class="col-md-6 card-body p-4 rounded">
+          <h5 class="card-title">{{ product.attributes.product_name }}</h5>
+          <p class="card-text">{{ product.attributes.manufacturer_company || "No Description" }}</p>
+          <p class="card-text">Price: {{ product.attributes.price }}</p>
+          
+          <button class="btn btn-dark" (click)="addToCart(product.id)">Add to Cart</button> &nbsp;
+          <button class="btn btn-outline-dark">Add to wishlist</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- <div class="container mt-4">
+      <br>
+      <span class="bestSellers"><h1>Best Sellers</h1></span><br><br>
+<div class="row mx-auto">
+    <div class="col-md-4 mb-4" *ngFor="let product of products">
+      <div class="card">
+        <img [src]="product.imageUrl" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">Price: {{ product.price }}</p>
+          <a routerLink="app-product-view">view product details</a>
+          <a href="#" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div> -->
+
+
+  
+  
